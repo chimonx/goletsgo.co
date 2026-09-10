@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- A refresh always starts at the top: the router scrolls to any #hash
+         itself, and restoring an old offset is what left the fixed header
+         stranded mid-page on iOS. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    </script>
 
     <!-- Icons: the same mark as the site header (mint car on a dark tile). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -95,13 +101,38 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CAzphan2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B1ND41Dc.css">
+    <script type="module" crossorigin src="/assets/index-DVyceIkA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BLW1g1CZ.css">
     <style>[data-prerender]{display:none}</style>
   <noscript><style>[data-prerender]{display:block}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BusTrip","provider":{"@type":"Organization","name":"Suwannatee Tour"},"departureBusStop":{"@type":"BusStation","name":"Bangkok Bus Terminal Southern (Sai Tai Mai)"},"arrivalBusStop":{"@type":"BusStation","name":"Lamae District's Suwannatee Tour Office"}}</script>
   </head>
   <body>
     <div id="root"><div data-prerender style="max-width:64rem;margin:0 auto;padding:6rem 1.5rem;font-family:Inter,system-ui,sans-serif;color:#171717;line-height:1.6"><nav><a href="/">Home</a> › <a href="/routes">Routes</a> › Bangkok - Chumphon - Lang Suan - Lamae</nav><h1>Bangkok - Chumphon - Lang Suan - Lamae</h1><p>Operated by Suwannatee Tour · 43 stops · 7 provinces.</p><p><a href="/#bus">Book this route</a> · <a href="/connections">Plan a connection</a></p><h2>Stops on this route</h2><ol><li>Bangkok Bus Terminal Southern (Sai Tai Mai) — Bangkok</li><li>Makro Bang Bon Bus Stop (Highway Pavilion in front of Ban Parinsiri) — Bangkok</li><li>Samae Dam Bus Stop (at the bus stop in front of Big Sia Furniture, Bang Kradi) — Bangkok</li><li>Wat Phanthai Norasing&#39;s Suwannatee Tour Bus Stop — Samut Sakhon</li><li>Wat Ketumadi Sri Wararam Bus Stop (Highway Pavilion) — Samut Sakhon</li><li>Tha Chin Subdistrict Bus Stop (Esso Tha Chin Market, In Front Of 7-Eleven) — Samut Sakhon</li><li>Mae Klong Intersection Bus Stop — Samut Songkhram</li><li>Wang Manao Subdistrict Bus Stop (Wang Manao Highway Police Service Center) — Ratchaburi</li><li>Wang Manow Bus Stop (Perm Poon Sub Market, Checking Point) — Phetchaburi</li><li>Mueang Phetchaburi District Suwannatee Bus Stop (Big C Phetchaburi) — Phetchaburi</li><li>Hua Hin District Bus Stop (Sommai Souvenir Shop) — Prachuap Khiri Khan</li><li>Pran Buri Intersection Bus Stop — Prachuap Khiri Khan</li><li>Prachuap Khiri Khan Junction Bus Stop (Near Makro) — Prachuap Khiri Khan</li><li>Thap Sakae Intersection Bus Stop — Prachuap Khiri Khan</li><li>Ban Krut Intersection Bus Stop — Prachuap Khiri Khan</li><li>Bang Saphan District Bus Stop (Koh Ya Chim Bus Terminal) — Prachuap Khiri Khan</li><li>Ban Thammarat Bus Stop — Prachuap Khiri Khan</li><li>Bang Saphan Yai Junction Bus Stop — Prachuap Khiri Khan</li><li>Bang Saphan Noi T-Junction — Prachuap Khiri Khan</li><li>Khao Pho Bus Stop (Khaopho Service Area Center) — Prachuap Khiri Khan</li><li>Khao Teen Ped Bus Stop (In Front Of Ban Phala Checkpoint) — Chumphon</li><li>Ta Ngo Lang Bus Stop — Chumphon</li><li>Tha Sae District Bus Stop (In Front Of San Pho Ta Hin Chang) — Chumphon</li><li>Sap Anan Subdistrict Bus Stop (Ang Thong) — Chumphon</li><li>Pathio Intersection Bus Stop — Chumphon</li><li>Tha Sae Intersection Bus Stop — Chumphon</li><li>Tha Sae Bus Stop (Khun Sarai Restaurant) — Chumphon</li><li>Khao Phang Bus Stop (Highway Passenger Shelter) — Chumphon</li><li>Pathomphon Intersection Bus Stop (Under The Bridge Crossing The Intersection) — Chumphon</li><li>Mueang Chumphon District Bus Stop (Suwannatee Tour Office) — Chumphon</li><li>Khun Krathing Subdistrict Bus Stop (In front of 7-Eleven) — Chumphon</li><li>Thung Kha Intersection Bus Stop — Chumphon</li><li>Ban Khao Chan Toh T-Junction Bus Stop (KM 18) — Chumphon</li><li>Wisai Intersection Bus Stop — Chumphon</li><li>Chumphon Horticultural Research Center Bus Stop — Chumphon</li><li>Don Wa Intersection Bus Stop — Chumphon</li><li>Sawi District Bus Stop (Opposite the Police Booth) — Chumphon</li><li>Lang Suan Hospital Bus Stop — Chumphon</li><li>Kasem Police Booth Bus Stop — Chumphon</li><li>Sam Mai Junction Bus Stop — Chumphon</li><li>Khoa Pip Intersection Bus Stop — Chumphon</li><li>Lang Suan District&#39;s Suwannatee Tour Office — Chumphon</li><li>Lamae District&#39;s Suwannatee Tour Office — Chumphon</li></ol></div></div>
+
+    <!-- Shown from the very first paint until React has rendered; App.tsx
+         removes it. Kept outside #root so the prerenderer's seed still slots
+         into an empty root. Inline styles: nothing else has loaded yet. -->
+    <div id="app-loading" role="status" aria-live="polite" aria-label="Loading GoLetsGo">
+      <style>
+        #app-loading{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#fff;font-family:Inter,system-ui,sans-serif;color:#5a5a5a}
+        #app-loading .mark{width:56px;height:56px;border-radius:18px;background:#171717;display:flex;align-items:center;justify-content:center}
+        #app-loading .ring{width:28px;height:28px;border-radius:50%;border:3px solid #d9fcef;border-top-color:#16c793;animation:app-spin .8s linear infinite}
+        #app-loading .text{font-size:13px;font-weight:500;letter-spacing:.01em}
+        #app-loading.done{opacity:0;transition:opacity .25s ease;pointer-events:none}
+        @keyframes app-spin{to{transform:rotate(360deg)}}
+        @media (prefers-reduced-motion:reduce){#app-loading .ring{animation:none;border-top-color:#16c793}}
+      </style>
+      <div class="mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fe0ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="text">Loading GoLetsGo…</div>
+    </div>
+    <!-- Never trap a no-JS visitor (the prerendered content is what they get),
+         and never trap anyone if the bundle fails to start. -->
+    <noscript><style>#app-loading{display:none}</style></noscript>
+    <script>setTimeout(function(){var l=document.getElementById('app-loading');if(l)l.remove()},10000)</script>
+
   </body>
 </html>

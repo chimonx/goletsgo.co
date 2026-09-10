@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- A refresh always starts at the top: the router scrolls to any #hash
+         itself, and restoring an old offset is what left the fixed header
+         stranded mid-page on iOS. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    </script>
 
     <!-- Icons: the same mark as the site header (mint car on a dark tile). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -95,13 +101,38 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CAzphan2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B1ND41Dc.css">
+    <script type="module" crossorigin src="/assets/index-DVyceIkA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BLW1g1CZ.css">
     <style>[data-prerender]{display:none}</style>
   <noscript><style>[data-prerender]{display:block}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Private drive in Thailand: a complete guide","description":"How a private car and driver works in Thailand — booking with a map pin, choosing a vehicle, pricing, and when it beats the bus.","datePublished":"2026-09-07","dateModified":"2026-09-07","image":"https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1600","author":{"@type":"Organization","name":"GoLetsGo"},"publisher":{"@type":"Organization","name":"GoLetsGo"},"mainEntityOfPage":"https://goletsgo.co/articles/private-drive-guide"}</script>
   </head>
   <body>
     <div id="root"><div data-prerender style="max-width:64rem;margin:0 auto;padding:6rem 1.5rem;font-family:Inter,system-ui,sans-serif;color:#171717;line-height:1.6"><h1>Private drive in Thailand: a complete guide</h1><p>How a private car and driver works in Thailand — booking with a map pin, choosing a vehicle, pricing, and when it beats the bus.</p><p>A private drive is your own car and driver for the whole journey, picked up at your door and dropped at the address you choose. There is no terminal, no timetable and no transfer — just point-to-point travel on your schedule. It is the easiest way to move a family, a group, or a lot of luggage across Thailand.</p><h2>How to book a private drive</h2><p>Booking takes a minute. Drop a pin on the map for your pick-up and drop-off, or search a place by name — a hotel, an airport, a landmark. Then tell us how many passengers and bags, choose a vehicle, and leave a phone number. A driver confirms the trip and the fare, usually within about an hour.</p><h2>Choosing a vehicle</h2><ul><li>Sedan: up to 3 passengers with light luggage — the cheapest option.</li><li>SUV: up to 5 passengers, more room for bags and comfort on long trips.</li><li>Van: up to 9 passengers — best for groups, families and airport runs.</li><li>Any: let us match the best available car to your group and bags.</li></ul><h2>When a private drive is the smart choice</h2><ul><li>Airport transfers with an early or late flight.</li><li>Groups and families where the per-person cost drops fast.</li><li>A pick-up or drop-off far from any bus terminal.</li><li>Trips with bulky luggage, sports gear or a lot of shopping.</li><li>When you want to stop along the way or travel on your own schedule.</li></ul><h2>What to expect</h2><p>Drivers are licensed, insured and reviewed. You get a confirmation with the fare before you commit, and the driver calls to arrange the exact meeting point. Payment terms are confirmed at booking.</p><p>For a long trip on a budget, a bus for the main leg plus a short private drive at each end is often the cheapest comfortable combination.</p></div></div>
+
+    <!-- Shown from the very first paint until React has rendered; App.tsx
+         removes it. Kept outside #root so the prerenderer's seed still slots
+         into an empty root. Inline styles: nothing else has loaded yet. -->
+    <div id="app-loading" role="status" aria-live="polite" aria-label="Loading GoLetsGo">
+      <style>
+        #app-loading{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#fff;font-family:Inter,system-ui,sans-serif;color:#5a5a5a}
+        #app-loading .mark{width:56px;height:56px;border-radius:18px;background:#171717;display:flex;align-items:center;justify-content:center}
+        #app-loading .ring{width:28px;height:28px;border-radius:50%;border:3px solid #d9fcef;border-top-color:#16c793;animation:app-spin .8s linear infinite}
+        #app-loading .text{font-size:13px;font-weight:500;letter-spacing:.01em}
+        #app-loading.done{opacity:0;transition:opacity .25s ease;pointer-events:none}
+        @keyframes app-spin{to{transform:rotate(360deg)}}
+        @media (prefers-reduced-motion:reduce){#app-loading .ring{animation:none;border-top-color:#16c793}}
+      </style>
+      <div class="mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fe0ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="text">Loading GoLetsGo…</div>
+    </div>
+    <!-- Never trap a no-JS visitor (the prerendered content is what they get),
+         and never trap anyone if the bundle fails to start. -->
+    <noscript><style>#app-loading{display:none}</style></noscript>
+    <script>setTimeout(function(){var l=document.getElementById('app-loading');if(l)l.remove()},10000)</script>
+
   </body>
 </html>

@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- A refresh always starts at the top: the router scrolls to any #hash
+         itself, and restoring an old offset is what left the fixed header
+         stranded mid-page on iOS. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    </script>
 
     <!-- Icons: the same mark as the site header (mint car on a dark tile). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -95,13 +101,38 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CAzphan2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B1ND41Dc.css">
+    <script type="module" crossorigin src="/assets/index-DVyceIkA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BLW1g1CZ.css">
     <style>[data-prerender]{display:none}</style>
   <noscript><style>[data-prerender]{display:block}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Bangkok to Chiang Mai by bus: what to expect","description":"Travel times, bus classes, overnight tips and how to book the Bangkok to Chiang Mai coach, one of Thailand's busiest long-distance routes.","datePublished":"2026-09-03","dateModified":"2026-09-03","image":"https://images.pexels.com/photos/68629/pexels-photo-68629.jpeg?auto=compress&cs=tinysrgb&w=1600","author":{"@type":"Organization","name":"GoLetsGo"},"publisher":{"@type":"Organization","name":"GoLetsGo"},"mainEntityOfPage":"https://goletsgo.co/articles/bangkok-to-chiang-mai-by-bus"}</script>
   </head>
   <body>
     <div id="root"><div data-prerender style="max-width:64rem;margin:0 auto;padding:6rem 1.5rem;font-family:Inter,system-ui,sans-serif;color:#171717;line-height:1.6"><h1>Bangkok to Chiang Mai by bus: what to expect</h1><p>Travel times, bus classes, overnight tips and how to book the Bangkok to Chiang Mai coach, one of Thailand&#39;s busiest long-distance routes.</p><p>The Bangkok to Chiang Mai coach is a rite of passage for travellers heading north. The journey covers around 700 kilometres and takes 9 to 11 hours depending on the operator, the class and the number of stops.</p><h2>Day or overnight?</h2><p>Most people take an overnight VIP or first-class sleeper, leaving Bangkok in the evening and arriving in Chiang Mai the next morning. It saves a night of accommodation and a day of travel. Daytime departures exist too and give you the scenery through the northern hills.</p><h2>Where you leave and arrive</h2><p>Buses depart from the Northern Bus Terminal in Bangkok, known as Mo Chit 2, and arrive at the Chiang Mai Arcade Bus Terminal. Both are well connected to city transport, though a taxi or ride-hail is easiest late at night.</p><h2>Choosing a class</h2><ul><li>VIP 24: 24 seats, the most legroom and recline, best for sleeping.</li><li>First class: 32 to 34 seats, a snack and blanket, a solid overnight option.</li><li>Second class air-con: cheapest air-conditioned option, more stops.</li></ul><h2>Overnight tips</h2><ul><li>Bring a light layer — the air-conditioning runs cold.</li><li>Keep valuables on you, not in the hold.</li><li>Choose a seat away from the toilet at the back for a quieter ride.</li><li>Download offline entertainment; mobile signal drops in the hills.</li></ul><p>Search the route to compare every operator&#39;s departure time and price, then book a seat and board with a QR code.</p></div></div>
+
+    <!-- Shown from the very first paint until React has rendered; App.tsx
+         removes it. Kept outside #root so the prerenderer's seed still slots
+         into an empty root. Inline styles: nothing else has loaded yet. -->
+    <div id="app-loading" role="status" aria-live="polite" aria-label="Loading GoLetsGo">
+      <style>
+        #app-loading{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#fff;font-family:Inter,system-ui,sans-serif;color:#5a5a5a}
+        #app-loading .mark{width:56px;height:56px;border-radius:18px;background:#171717;display:flex;align-items:center;justify-content:center}
+        #app-loading .ring{width:28px;height:28px;border-radius:50%;border:3px solid #d9fcef;border-top-color:#16c793;animation:app-spin .8s linear infinite}
+        #app-loading .text{font-size:13px;font-weight:500;letter-spacing:.01em}
+        #app-loading.done{opacity:0;transition:opacity .25s ease;pointer-events:none}
+        @keyframes app-spin{to{transform:rotate(360deg)}}
+        @media (prefers-reduced-motion:reduce){#app-loading .ring{animation:none;border-top-color:#16c793}}
+      </style>
+      <div class="mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fe0ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="text">Loading GoLetsGo…</div>
+    </div>
+    <!-- Never trap a no-JS visitor (the prerendered content is what they get),
+         and never trap anyone if the bundle fails to start. -->
+    <noscript><style>#app-loading{display:none}</style></noscript>
+    <script>setTimeout(function(){var l=document.getElementById('app-loading');if(l)l.remove()},10000)</script>
+
   </body>
 </html>

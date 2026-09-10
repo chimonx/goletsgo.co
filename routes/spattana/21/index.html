@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- A refresh always starts at the top: the router scrolls to any #hash
+         itself, and restoring an old offset is what left the fixed header
+         stranded mid-page on iOS. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    </script>
 
     <!-- Icons: the same mark as the site header (mint car on a dark tile). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -95,13 +101,38 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CAzphan2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B1ND41Dc.css">
+    <script type="module" crossorigin src="/assets/index-DVyceIkA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BLW1g1CZ.css">
     <style>[data-prerender]{display:none}</style>
   <noscript><style>[data-prerender]{display:block}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BusTrip","provider":{"@type":"Organization","name":"407 Pattana"},"departureBusStop":{"@type":"BusStation","name":"Rayong (Office 407 Pattana)"},"arrivalBusStop":{"@type":"BusStation","name":"Sri Chiang Mai"}}</script>
   </head>
   <body>
     <div id="root"><div data-prerender style="max-width:64rem;margin:0 auto;padding:6rem 1.5rem;font-family:Inter,system-ui,sans-serif;color:#171717;line-height:1.6"><nav><a href="/">Home</a> › <a href="/routes">Routes</a> › Rayong - Si Chiang Mai</nav><h1>Rayong - Si Chiang Mai</h1><p>Operated by 407 Pattana · 27 stops · 9 provinces.</p><p><a href="/#bus">Book this route</a> · <a href="/connections">Plan a connection</a></p><h2>Stops on this route</h2><ol><li>Rayong (Office 407 Pattana) — Rayong</li><li>Map Ta Phut (Office 407 Pattana) — Rayong</li><li>Ban Chang — Rayong</li><li>Sattahip (Office 407 Pattana) — Chon Buri</li><li>Pattaya&#39;s 407 Pattana Bus Stop (Bangchak Gas Station Central Pattaya Branch) — Chon Buri</li><li>Ao Udom 407 Pattana Bus Stop (Near Ao Udom Wood Trading) — Chon Buri</li><li>Si Racha (Office 407 Pattana) — Chon Buri</li><li>Nong Mon Bus Stop (Opposite The Government Savings Bank, Nong Mon Branch) — Chon Buri</li><li>Ban Suan Subdistrict&#39;s 407 Pattana Bus Stop (Next To The Entrance Of New Chonburi Market) — Chon Buri</li><li>Chachoengsao Bus Terminal — Chachoengsao</li><li>Phanom Sarakham 407 Pattana Bus Stop — Chachoengsao</li><li>Khlong Rang (Office 407 Pattana) — Prachin Buri</li><li>Prachin Buri Bus Terminal — Prachin Buri</li><li>Nakhon Ratchasima Bus Terminal 2 — Nakhon Ratchasima</li><li>Phon District Bus Stop — Khon Kaen</li><li>Ban Phai Bus Terminal — Khon Kaen</li><li>Khon Kaen Bus Terminal 3 — Khon Kaen</li><li>Khuean Ubolratana&amp;#039;s 407 Pattana Bus Stop (Near Spicy Hot And Sour Soup) — Khon Kaen</li><li>Non Sang (Office 407 Pattana) — Nong Bua Lam Phu</li><li>Nong Bua Lamphu Bus Terminal — Nong Bua Lam Phu</li><li>Na Kham Hai — Nong Bua Lam Phu</li><li>Kud Din Chi Subdistrict Bus Stop — Nong Bua Lam Phu</li><li>Suwannakhuha Bus Stop (New Shop, Opposite Muang Thai Capital) — Nong Bua Lam Phu</li><li>Na Dan District Bus Stop — Nong Bua Lam Phu</li><li>Ban Phue — Udon Thani</li><li>Tha Bor — Nong Khai</li><li>Sri Chiang Mai — Nong Khai</li></ol></div></div>
+
+    <!-- Shown from the very first paint until React has rendered; App.tsx
+         removes it. Kept outside #root so the prerenderer's seed still slots
+         into an empty root. Inline styles: nothing else has loaded yet. -->
+    <div id="app-loading" role="status" aria-live="polite" aria-label="Loading GoLetsGo">
+      <style>
+        #app-loading{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#fff;font-family:Inter,system-ui,sans-serif;color:#5a5a5a}
+        #app-loading .mark{width:56px;height:56px;border-radius:18px;background:#171717;display:flex;align-items:center;justify-content:center}
+        #app-loading .ring{width:28px;height:28px;border-radius:50%;border:3px solid #d9fcef;border-top-color:#16c793;animation:app-spin .8s linear infinite}
+        #app-loading .text{font-size:13px;font-weight:500;letter-spacing:.01em}
+        #app-loading.done{opacity:0;transition:opacity .25s ease;pointer-events:none}
+        @keyframes app-spin{to{transform:rotate(360deg)}}
+        @media (prefers-reduced-motion:reduce){#app-loading .ring{animation:none;border-top-color:#16c793}}
+      </style>
+      <div class="mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fe0ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="text">Loading GoLetsGo…</div>
+    </div>
+    <!-- Never trap a no-JS visitor (the prerendered content is what they get),
+         and never trap anyone if the bundle fails to start. -->
+    <noscript><style>#app-loading{display:none}</style></noscript>
+    <script>setTimeout(function(){var l=document.getElementById('app-loading');if(l)l.remove()},10000)</script>
+
   </body>
 </html>

@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- A refresh always starts at the top: the router scrolls to any #hash
+         itself, and restoring an old offset is what left the fixed header
+         stranded mid-page on iOS. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    </script>
 
     <!-- Icons: the same mark as the site header (mint car on a dark tile). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -95,13 +101,38 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CAzphan2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B1ND41Dc.css">
+    <script type="module" crossorigin src="/assets/index-DVyceIkA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BLW1g1CZ.css">
     <style>[data-prerender]{display:none}</style>
   <noscript><style>[data-prerender]{display:block}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BusTrip","provider":{"@type":"Organization","name":"VAN.49 COMPANY LIMITED"},"departureBusStop":{"@type":"BusStation","name":"Bangkok Bus Terminal Ekkamai"},"arrivalBusStop":{"@type":"BusStation","name":"Van 49 Bangsaen Station (Opposite Islamic Bank, oblique to Burapha University Hospital)"}}</script>
   </head>
   <body>
     <div id="root"><div data-prerender style="max-width:64rem;margin:0 auto;padding:6rem 1.5rem;font-family:Inter,system-ui,sans-serif;color:#171717;line-height:1.6"><nav><a href="/">Home</a> › <a href="/routes">Routes</a> › Ekkamai - Burapha University</nav><h1>Ekkamai - Burapha University</h1><p>Operated by VAN.49 COMPANY LIMITED · 30 stops · 2 provinces.</p><p><a href="/#bus">Book this route</a> · <a href="/connections">Plan a connection</a></p><h2>Stops on this route</h2><ol><li>Bangkok Bus Terminal Ekkamai — Bangkok</li><li>Minibus Station Bang Na (Under Expressway) — Bangkok</li><li>Ban Kao Intersection / Phan Thong — Chon Buri</li><li>Khlong Tamru Bus Stop (Opposite Soi Wat Bunyaratsri) — Chon Buri</li><li>Amata City Chonburi (Lotus&#39;s Amata Nakorn) — Chon Buri</li><li>Amata City Industrial Estate Bus Stop (In Front of Sang Chai Meter) — Chon Buri</li><li>Sripatum University (Chonburi Campus) — Chon Buri</li><li>Chalerm Thai Intersection Bus Stop — Chon Buri</li><li>Ban Suan Intersection Bus Stop (Chonburi Vocational College) — Chon Buri</li><li>Mueang Chonburi District Bus Stop (Chonburi Hospital) — Chon Buri</li><li>Chon Buri Bus Stop (Opposite Chonradsadornumrung School) — Chon Buri</li><li>Mueang Chon Buri Bus Stop (Tuknam) — Chon Buri</li><li>Mueang Chon Buri Bus Stop (Opposite Lotus&#39;s Chon Buri) — Chon Buri</li><li>Mueang Chonburi District Bus Stop (Opposite Central Chonburi) — Chon Buri</li><li>Huai Kapi Subdistrict Bus Stop (In Front Of Big C Extra Khiri Intersection) — Chon Buri</li><li>Samet Bus Stop (Opposite Makro Chon Buri) — Chon Buri</li><li>Huai Kapi Bus Stop (Big C Ang Sila Intersection) — Chon Buri</li><li>Mueang Chon Buri Bus Stop (In front of Chonburi Happy World Co., Ltd.) — Chon Buri</li><li>Chatuchak Weekend Chonburi — Chon Buri</li><li>Bangsaen Technical College — Chon Buri</li><li>Mueang Chon Buri Bus Stop (Opposite Wat Bang Peng) — Chon Buri</li><li>Chonburi Bus Stop (Galaxy Bangsaen Intersection) — Chon Buri</li><li>Nong Mon Bus Stop (Footbridge at Nong Mon Market) — Chon Buri</li><li>Bangsaen Bus Stop (In front of Rangre Intersection Pawnshop) — Chon Buri</li><li>Saen Suk Bus Stop (Opposite Wang Muk Market) — Chon Buri</li><li>Bangsaen Bus Stop (In front of Mae Charoen Yaowarat Gold Shop) — Chon Buri</li><li>Bang Saen Bus Stop ( In front of Burapha University) — Chon Buri</li><li>Bang Saen Bus Stop (Burapha University Hospital) — Chon Buri</li><li>Bang Saen Bus Stop (Bang Saen Roundabout) — Chon Buri</li><li>Van 49 Bangsaen Station (Opposite Islamic Bank, oblique to Burapha University Hospital) — Chon Buri</li></ol></div></div>
+
+    <!-- Shown from the very first paint until React has rendered; App.tsx
+         removes it. Kept outside #root so the prerenderer's seed still slots
+         into an empty root. Inline styles: nothing else has loaded yet. -->
+    <div id="app-loading" role="status" aria-live="polite" aria-label="Loading GoLetsGo">
+      <style>
+        #app-loading{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#fff;font-family:Inter,system-ui,sans-serif;color:#5a5a5a}
+        #app-loading .mark{width:56px;height:56px;border-radius:18px;background:#171717;display:flex;align-items:center;justify-content:center}
+        #app-loading .ring{width:28px;height:28px;border-radius:50%;border:3px solid #d9fcef;border-top-color:#16c793;animation:app-spin .8s linear infinite}
+        #app-loading .text{font-size:13px;font-weight:500;letter-spacing:.01em}
+        #app-loading.done{opacity:0;transition:opacity .25s ease;pointer-events:none}
+        @keyframes app-spin{to{transform:rotate(360deg)}}
+        @media (prefers-reduced-motion:reduce){#app-loading .ring{animation:none;border-top-color:#16c793}}
+      </style>
+      <div class="mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3fe0ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="text">Loading GoLetsGo…</div>
+    </div>
+    <!-- Never trap a no-JS visitor (the prerendered content is what they get),
+         and never trap anyone if the bundle fails to start. -->
+    <noscript><style>#app-loading{display:none}</style></noscript>
+    <script>setTimeout(function(){var l=document.getElementById('app-loading');if(l)l.remove()},10000)</script>
+
   </body>
 </html>
