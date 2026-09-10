@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /login
+Disallow: /my-bookings
+Disallow: /admin
 
 Sitemap: https://goletsgo.co/sitemap.xml
