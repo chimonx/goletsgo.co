@@ -1,0 +1,35 @@
+# GoLetsGo
+
+> Intercity bus tickets and private car-and-driver bookings across Thailand. Compare hundreds of licensed bus operators on one screen, plan journeys that change buses, look up operator counters, or request a private drive door to door.
+
+GoLetsGo is a travel booking site for Thailand. Bus routes, stops, operators and counters are published as static pages; the private-drive form is the only interactive booking flow. All content is in English.
+
+## Book
+
+- [Home and bus search](https://goletsgo.co/): search intercity buses by route and date, pick a seat and pay online for an instant QR-code e-ticket.
+- [Private drive](https://goletsgo.co/private-drive): request a private car and driver by dropping map pins for pick-up and drop-off; a driver confirms within about an hour.
+
+## Explore the network
+
+- [All bus routes](https://goletsgo.co/routes): every intercity bus route with its full stop list, searchable by city, operator or route code. Each route has its own page under /routes/<operator>/<id>.
+- [Connections](https://goletsgo.co/connections): journeys between two provinces that change buses once, with each leg shown separately.
+- [Operator counters](https://goletsgo.co/counters): ticket and check-in counter locations with phone numbers for every bus operator.
+
+## Guides
+
+- [All travel guides](https://goletsgo.co/articles): practical guides to bus and private-drive travel in Thailand.
+- [How to book an intercity bus in Thailand](https://goletsgo.co/articles/how-to-book-a-bus-in-thailand)
+- [How bus connections and transfers work](https://goletsgo.co/articles/how-bus-connections-work)
+- [Bangkok to Chiang Mai by bus](https://goletsgo.co/articles/bangkok-to-chiang-mai-by-bus)
+- [Private drive or bus: which should you book?](https://goletsgo.co/articles/private-drive-vs-bus)
+- [Private drive in Thailand: a complete guide](https://goletsgo.co/articles/private-drive-guide)
+- [Airport transfers by private drive](https://goletsgo.co/articles/airport-transfers-thailand)
+- [Bus luggage rules and what to bring](https://goletsgo.co/articles/bus-luggage-and-what-to-bring)
+- [Thai bus terminals explained](https://goletsgo.co/articles/thai-bus-terminals-explained)
+- [Frequently asked questions](https://goletsgo.co/articles/frequently-asked-questions)
+- [About GoLetsGo](https://goletsgo.co/articles/about-goletsgo)
+
+## Optional
+
+- [Sitemap](https://goletsgo.co/sitemap.xml): every page, including all 1,300+ individual route pages.
+- [Privacy policy](https://accounts.busx.com/apps/legal/privacy.php?ui_locale=en_US): booking is handled by the BusX network.
