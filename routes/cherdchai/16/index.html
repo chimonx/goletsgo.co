@@ -2,40 +2,101 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Icons: the same mark as the site header (mint car on a dark tile). -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#171717" />
+    <meta name="theme-color" content="#171717" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.pexels.com" />
+    <link rel="preconnect" href="https://cdn.busx.com" />
+    <!-- Load the webfont without blocking first paint; Inter falls back to the
+         system stack until it arrives (display=swap). -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+
+    <!-- Primary SEO. Per-page values are overwritten at build time by
+         scripts/prerender.mjs and at runtime by src/lib/seo.ts. -->
     <title>Si Sa Ket(Yang Chum noi) - Bangkok — Cherdchai Tour bus route — GoLetsGo</title>
     <meta name="description" content="Si Sa Ket(Yang Chum noi) - Bangkok: full stop list and operator for the Cherdchai Tour bus route, with 14 stops across 6 provinces. Book online." />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="bus tickets Thailand, book bus online, intercity bus, Bangkok to Chiang Mai bus, Mo Chit bus, private driver Thailand, airport transfer Thailand, bus routes, bus terminal, GoLetsGo"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="GoLetsGo" />
     <link rel="canonical" href="https://goletsgo.co/routes/cherdchai/16" />
+
+    <!-- Open Graph -->
     <meta property="og:site_name" content="GoLetsGo" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://goletsgo.co/routes/cherdchai/16" />
     <meta property="og:title" content="Si Sa Ket(Yang Chum noi) - Bangkok — Cherdchai Tour bus route — GoLetsGo" />
-    <meta
-      property="og:description"
-      content="Intercity bus tickets, connection planning, operator counters and private drive."
-    />
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
+    <meta property="og:description" content="Si Sa Ket(Yang Chum noi) - Bangkok: full stop list and operator for the Cherdchai Tour bus route, with 14 stops across 6 provinces. Book online." />
+    <meta property="og:image" content="https://i.postimg.cc/Qx1nXspf/goletsgo.png" />
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/Qx1nXspf/goletsgo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="747" />
+    <meta property="og:image:alt" content="GoLetsGo — bus tickets and private drives across Thailand" />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
     <meta name="twitter:title" content="Si Sa Ket(Yang Chum noi) - Bangkok — Cherdchai Tour bus route — GoLetsGo" />
     <meta name="twitter:description" content="Si Sa Ket(Yang Chum noi) - Bangkok: full stop list and operator for the Cherdchai Tour bus route, with 14 stops across 6 provinces. Book online." />
+    <meta name="twitter:image" content="https://i.postimg.cc/Qx1nXspf/goletsgo.png" />
+    <meta name="twitter:image:alt" content="GoLetsGo — bus tickets and private drives across Thailand" />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "GoLetsGo",
-        "url": "https://goletsgo.co/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://goletsgo.co/routes?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://goletsgo.co/#organization",
+            "name": "GoLetsGo",
+            "url": "https://goletsgo.co/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://goletsgo.co/favicon.svg"
+            },
+            "image": "https://i.postimg.cc/Qx1nXspf/goletsgo.png",
+            "description": "Intercity bus tickets and private car-and-driver bookings across Thailand.",
+            "areaServed": { "@type": "Country", "name": "Thailand" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://goletsgo.co/#website",
+            "url": "https://goletsgo.co/",
+            "name": "GoLetsGo",
+            "publisher": { "@id": "https://goletsgo.co/#organization" },
+            "inLanguage": "en",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://goletsgo.co/routes?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-eKcJJOUb.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CKdBGlUH.css">
+    <script type="module" crossorigin src="/assets/index-CAzphan2.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B1ND41Dc.css">
     <style>[data-prerender]{display:none}</style>
   <noscript><style>[data-prerender]{display:block}</style></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BusTrip","provider":{"@type":"Organization","name":"Cherdchai Tour"},"departureBusStop":{"@type":"BusStation","name":"Ban Muang Noi"},"arrivalBusStop":{"@type":"BusStation","name":"Bangkok Bus Terminal Chatuchak (Mo Chit 2)"}}</script>
